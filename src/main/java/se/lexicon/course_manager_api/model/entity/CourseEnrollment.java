@@ -16,7 +16,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @Entity
 @Table(name = "enrollments")
-public class CourseStudent {
+public class CourseEnrollment {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -39,7 +39,7 @@ public class CourseStudent {
     @OneToMany(
             cascade = {CascadeType.DETACH, CascadeType.REFRESH},
             fetch = FetchType.LAZY,
-            mappedBy = "courseStudent",
+            mappedBy = "courseEnrollment",
             orphanRemoval = true
     )
     private List<StudentAssignment> assignmentList;
@@ -55,14 +55,14 @@ public class CourseStudent {
             if(this.assignmentList != null){
                 for(StudentAssignment studentAssignment : this.assignmentList){
                     if(studentAssignment != null){
-                        studentAssignment.setCourseStudent(null);
+                        studentAssignment.setCourseEnrollment(null);
                     }
                 }
             }
         }else{
             for(StudentAssignment studentAssignment : assignmentList){
                 if(studentAssignment != null){
-                    studentAssignment.setCourseStudent(this);
+                    studentAssignment.setCourseEnrollment(this);
                 }
             }
         }
@@ -76,7 +76,7 @@ public class CourseStudent {
             for(StudentAssignment studentAssignment : studentAssignments){
                 if(studentAssignment != null && !this.assignmentList.contains(studentAssignment)){
                     this.assignmentList.add(studentAssignment);
-                    studentAssignment.setCourseStudent(this);
+                    studentAssignment.setCourseEnrollment(this);
                 }
             }
         }
@@ -89,7 +89,7 @@ public class CourseStudent {
             for(StudentAssignment studentAssignment : studentAssignments){
                 if(studentAssignment != null && this.assignmentList.contains(studentAssignment)){
                     this.assignmentList.remove(studentAssignment);
-                    studentAssignment.setCourseStudent(null);
+                    studentAssignment.setCourseEnrollment(null);
                 }
             }
         }
@@ -99,7 +99,7 @@ public class CourseStudent {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CourseStudent that = (CourseStudent) o;
+        CourseEnrollment that = (CourseEnrollment) o;
         return Objects.equals(id, that.id) && Objects.equals(regDate, that.regDate);
     }
 

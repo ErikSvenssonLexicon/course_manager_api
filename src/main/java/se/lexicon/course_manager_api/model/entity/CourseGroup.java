@@ -37,52 +37,52 @@ public class CourseGroup {
             fetch = FetchType.LAZY,
             mappedBy = "courseGroup"
     )
-    private List<CourseStudent> courseStudents;
+    private List<CourseEnrollment> courseEnrollments;
 
-    public List<CourseStudent> getCourseStudents() {
-        if(courseStudents == null) courseStudents = new ArrayList<>();
-        return courseStudents;
+    public List<CourseEnrollment> getCourseEnrollments() {
+        if(courseEnrollments == null) courseEnrollments = new ArrayList<>();
+        return courseEnrollments;
     }
 
-    public void setCourseStudents(List<CourseStudent> courseStudents) {
-        if(courseStudents == null) courseStudents = new ArrayList<>();
-        if(courseStudents.isEmpty()){
-            if(this.courseStudents != null){
-                for(CourseStudent courseStudent : this.courseStudents){
-                    courseStudent.setCourseGroup(null);
+    public void setCourseEnrollments(List<CourseEnrollment> courseEnrollments) {
+        if(courseEnrollments == null) courseEnrollments = new ArrayList<>();
+        if(courseEnrollments.isEmpty()){
+            if(this.courseEnrollments != null){
+                for(CourseEnrollment courseEnrollment : this.courseEnrollments){
+                    courseEnrollment.setCourseGroup(null);
                 }
             }
         }else {
-            for(CourseStudent courseStudent : courseStudents){
-                if(courseStudent != null){
-                    courseStudent.setCourseGroup(this);
+            for(CourseEnrollment courseEnrollment : courseEnrollments){
+                if(courseEnrollment != null){
+                    courseEnrollment.setCourseGroup(this);
                 }
             }
         }
-        this.courseStudents = courseStudents;
+        this.courseEnrollments = courseEnrollments;
     }
 
-    public void addCourseStudents(CourseStudent...courseStudents){
-        if(courseStudents == null) return;
-        if(this.courseStudents == null) this.courseStudents = new ArrayList<>();
-        if(courseStudents.length > 0){
-            for(CourseStudent courseStudent : courseStudents){
-                if(courseStudent != null && !this.courseStudents.contains(courseStudent)){
-                    this.courseStudents.add(courseStudent);
-                    courseStudent.setCourseGroup(this);
+    public void addCourseStudents(CourseEnrollment... courseEnrollments){
+        if(courseEnrollments == null) return;
+        if(this.courseEnrollments == null) this.courseEnrollments = new ArrayList<>();
+        if(courseEnrollments.length > 0){
+            for(CourseEnrollment courseEnrollment : courseEnrollments){
+                if(courseEnrollment != null && !this.courseEnrollments.contains(courseEnrollment)){
+                    this.courseEnrollments.add(courseEnrollment);
+                    courseEnrollment.setCourseGroup(this);
                 }
             }
         }
     }
 
-    public void removeCourseStudents(CourseStudent...courseStudents){
-        if(courseStudents == null) return;
-        if(this.courseStudents == null) this.courseStudents = new ArrayList<>();
-        if(courseStudents.length > 0){
-            for(CourseStudent courseStudent : courseStudents){
-                if(courseStudent != null && this.courseStudents.contains(courseStudent)){
-                    this.courseStudents.remove(courseStudent);
-                    courseStudent.setCourseGroup(null);
+    public void removeCourseStudents(CourseEnrollment... courseEnrollments){
+        if(courseEnrollments == null) return;
+        if(this.courseEnrollments == null) this.courseEnrollments = new ArrayList<>();
+        if(courseEnrollments.length > 0){
+            for(CourseEnrollment courseEnrollment : courseEnrollments){
+                if(courseEnrollment != null && this.courseEnrollments.contains(courseEnrollment)){
+                    this.courseEnrollments.remove(courseEnrollment);
+                    courseEnrollment.setCourseGroup(null);
                 }
             }
         }

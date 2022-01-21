@@ -36,54 +36,54 @@ public class Student {
             fetch = FetchType.LAZY,
             mappedBy = "student"
     )
-    private List<CourseStudent> courses;
+    private List<CourseEnrollment> courses;
 
-    public List<CourseStudent> getCourses() {
+    public List<CourseEnrollment> getCourses() {
         if(courses == null) courses = new ArrayList<>();
         return courses;
     }
 
-    public void setCourses(List<CourseStudent> courses) {
+    public void setCourses(List<CourseEnrollment> courses) {
         if(courses == null) courses = new ArrayList<>();
         if(courses.isEmpty()){
             if(this.courses != null){
-                for(CourseStudent courseStudent : this.courses){
-                    if(courseStudent != null){
-                        courseStudent.setStudent(null);
+                for(CourseEnrollment courseEnrollment : this.courses){
+                    if(courseEnrollment != null){
+                        courseEnrollment.setStudent(null);
                     }
                 }
             }
         }else{
-            for(CourseStudent courseStudent : courses){
-                if(courseStudent != null){
-                    courseStudent.setStudent(this);
+            for(CourseEnrollment courseEnrollment : courses){
+                if(courseEnrollment != null){
+                    courseEnrollment.setStudent(this);
                 }
             }
         }
         this.courses = courses;
     }
 
-    public void addCourses(CourseStudent...courseStudents){
-        if(courseStudents == null) return;
+    public void addCourses(CourseEnrollment... courseEnrollments){
+        if(courseEnrollments == null) return;
         if(this.courses == null) this.courses = new ArrayList<>();
-        if(courseStudents.length > 0){
-            for(CourseStudent courseStudent : courseStudents){
-                if(courseStudent != null && !this.courses.contains(courseStudent)){
-                    this.courses.add(courseStudent);
-                    courseStudent.setStudent(this);
+        if(courseEnrollments.length > 0){
+            for(CourseEnrollment courseEnrollment : courseEnrollments){
+                if(courseEnrollment != null && !this.courses.contains(courseEnrollment)){
+                    this.courses.add(courseEnrollment);
+                    courseEnrollment.setStudent(this);
                 }
             }
         }
     }
 
-    public void removeCourses(CourseStudent...courseStudents){
-        if(courseStudents == null) return;
+    public void removeCourses(CourseEnrollment... courseEnrollments){
+        if(courseEnrollments == null) return;
         if(this.courses == null) this.courses = new ArrayList<>();
-        if(courseStudents.length > 0){
-            for(CourseStudent courseStudent : courseStudents){
-                if(courseStudent != null && this.courses.contains(courseStudent)){
-                    courses.remove(courseStudent);
-                    courseStudent.setStudent(null);
+        if(courseEnrollments.length > 0){
+            for(CourseEnrollment courseEnrollment : courseEnrollments){
+                if(courseEnrollment != null && this.courses.contains(courseEnrollment)){
+                    courses.remove(courseEnrollment);
+                    courseEnrollment.setStudent(null);
                 }
             }
         }

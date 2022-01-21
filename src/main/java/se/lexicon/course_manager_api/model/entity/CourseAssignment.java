@@ -21,7 +21,7 @@ public class CourseAssignment {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(updatable = false)
     private String id;
-    @Column(name = "assignment_name")
+    @Column(name = "assignment_name", unique = true)
     private String assignmentName;
     @Column(name = "description", length = 1500)
     private String description;

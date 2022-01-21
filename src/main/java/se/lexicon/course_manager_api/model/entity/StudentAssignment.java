@@ -38,7 +38,7 @@ public class StudentAssignment {
             fetch = FetchType.LAZY
     )
     @JoinColumn(name = "course_student_id", table = "student_assignments")
-    private CourseStudent courseStudent;
+    private CourseEnrollment courseEnrollment;
 
     @Override
     public boolean equals(Object o) {
