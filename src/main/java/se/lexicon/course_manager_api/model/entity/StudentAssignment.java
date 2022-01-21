@@ -5,11 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import se.lexicon.course_manager_api.model.Rating;
-import se.lexicon.course_manager_api.model.entity.CourseAssignment;
-import se.lexicon.course_manager_api.model.entity.CourseStudent;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -38,4 +37,17 @@ public class StudentAssignment {
     )
     @JoinColumn(name = "course_student_id", table = "student_assignments")
     private CourseStudent courseStudent;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentAssignment that = (StudentAssignment) o;
+        return Objects.equals(id, that.id) && Objects.equals(deadLine, that.deadLine) && grade == that.grade;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, deadLine, grade);
+    }
 }
