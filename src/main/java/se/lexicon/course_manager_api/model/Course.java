@@ -32,7 +32,7 @@ public class Course {
     @JoinTable(
             name = "courses_course_assignments",
             joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_assignmentId")
+            inverseJoinColumns = @JoinColumn(name = "course_assignment_id")
     )
     private Set<CourseAssignment> courseAssignments;
 }
