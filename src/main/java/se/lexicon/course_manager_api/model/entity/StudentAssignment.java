@@ -1,9 +1,12 @@
-package se.lexicon.course_manager_api.model;
+package se.lexicon.course_manager_api.model.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import se.lexicon.course_manager_api.model.Rating;
+import se.lexicon.course_manager_api.model.entity.CourseAssignment;
+import se.lexicon.course_manager_api.model.entity.CourseStudent;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

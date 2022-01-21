@@ -1,4 +1,4 @@
-package se.lexicon.course_manager_api.model;
+package se.lexicon.course_manager_api.model.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
