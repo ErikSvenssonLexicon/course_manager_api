@@ -31,6 +31,8 @@ public class StudentAssignment {
     private LocalDateTime deadLine;
     @Column(name = "grade")
     private Rating grade;
+    @Column(name = "git_hub")
+    private String gitHub;
     @ManyToOne(
             cascade = {CascadeType.DETACH, CascadeType.REFRESH},
             fetch = FetchType.LAZY
