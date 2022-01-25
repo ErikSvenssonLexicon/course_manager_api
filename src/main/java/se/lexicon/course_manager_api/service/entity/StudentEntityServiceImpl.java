@@ -65,7 +65,7 @@ public class StudentEntityServiceImpl implements StudentEntityService{
     @Override
     public boolean delete(String id) {
         studentRepository.deleteById(id);
-        return studentRepository.existsById(id);
+        return !studentRepository.existsById(id);
     }
 
     @Override
