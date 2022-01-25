@@ -19,5 +19,5 @@ public class StudentAssignmentDto {
     private Rating grade;
     private String gitHub;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private CourseStudentDto courseStudent;
+    private CourseEnrollmentDto courseStudent;
 }

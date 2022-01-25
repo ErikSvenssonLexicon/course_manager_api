@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CourseStudentDto {
+public class CourseEnrollmentDto {
     private String id;
     private LocalDate regDate;
     @JsonInclude(JsonInclude.Include.NON_NULL)

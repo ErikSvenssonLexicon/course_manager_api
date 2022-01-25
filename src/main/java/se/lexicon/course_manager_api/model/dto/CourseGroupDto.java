@@ -18,5 +18,5 @@ public class CourseGroupDto {
     private LocalDate startDate;
     private LocalDate endDate;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<CourseStudentDto> courseStudents;
+    private List<CourseEnrollmentDto> courseStudents;
 }

@@ -18,5 +18,5 @@ public class StudentDto {
     private String address;
     private String phone;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<CourseStudentDto> courses;
+    private List<CourseEnrollmentDto> courses;
 }
