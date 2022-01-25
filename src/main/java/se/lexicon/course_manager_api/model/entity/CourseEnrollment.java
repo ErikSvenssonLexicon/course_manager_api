@@ -107,4 +107,11 @@ public class CourseEnrollment {
     public int hashCode() {
         return Objects.hash(id, regDate);
     }
+
+    @PrePersist
+    void prePersist(){
+        if(regDate == null){
+            regDate = LocalDate.now();
+        }
+    }
 }
